@@ -4,12 +4,12 @@ const router    = express.Router();
 // import users controller
 const {
     index,
-    getId
+    rank
 } = require('../controllers/schools-controller')
 
 
 router.get('/', index);
-router.get('/rank', getId);
+router.get('/rankHistory', rank);
 
 
 

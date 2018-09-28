@@ -9,20 +9,18 @@ const index = (req, res) => {
     res.json({ data: schoolData });
 }
 
-const getId = (req, res) => {
-    let { id } = req.query;
+const rank = (req, res) => {
+    let { rank } = req.query;
     console.log(req.query)
-    schoolData.find( {  })
-    .exec((err, users) => {
-    if (err) {
-        res.send({ message: "There is no user by that id" })
-    } else {
-        res.send({ users })
-    }
-});
+    let schoolRank = schoolData.filter(s => s.rank == rank ).pop();
+    // let schoolList = schoolData.map(s => s.schoolList)
+    console.log(schoolRank)
+    if (schoolRank === undefined) {
+        res.send({ message:'cannot find' })
+    } else ( res.send({ schoolRank }))
 }
 
 
 
 
-module.exports = { index, getId }
+module.exports = { index, rank }
