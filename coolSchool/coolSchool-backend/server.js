@@ -1,5 +1,5 @@
 const express       = require('express');
-const usersRoutes   = require('./routes/users');
+const usersRoutes   = require('./routes/schools');
 const mongomorgan   = require('mongo-morgan');
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(mongomorgan(process.env.DB_URL, 'dev'));
 
 // routes
-app.use('/api/users', usersRoutes);
+app.use('/api/schools', usersRoutes);
 
 app.listen(port, () => console.log(`Server is running on port: ${port}`));
 
